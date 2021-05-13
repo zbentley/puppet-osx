@@ -45,6 +45,7 @@ define osx::recovery_message(
         ensure => present,
         domain => '/Library/Preferences/com.apple.loginwindow.plist',
         key    => 'LoginwindowText',
+        type => 'string',
         value  => $value,
         user   => 'root',
         notify => [
