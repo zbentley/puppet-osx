@@ -37,9 +37,9 @@ Puppet::Type.newtype(:osx_default) do
     munge do |value|
       case value
       when :int
-        :integer
+        super :integer
       else
-        super
+        super value
       end
     end
   end
