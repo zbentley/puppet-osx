@@ -11,11 +11,11 @@ Puppet::Type.type(:osx_default).provide :defaults do
   end
 
   def destroy
-    run(:delete, key_string)
+    run :delete, domain, key
   end
 
   def create
-    run :write, "#{key_string} #{type_call(:value_string)}"
+    run :write, domain, key, *type_call(:value_string)
   end
 
   private
@@ -26,20 +26,20 @@ Puppet::Type.type(:osx_default).provide :defaults do
     send "generic_#{call}".to_sym
   end
 
-  def run(cmd, string, failonfail=true)
+  def run(cmd, *args, failonfail=true)
     execute(
-      "defaults #{host} #{cmd} #{string}",
+      ['defaults', host, cmd, *args],
       failonfail: failonfail,
       uid: user
     )
   end
 
   def read
-    run(:read, key_string, false).rstrip
+    run(:read, domain, key, false).rstrip
   end
 
   def read_type
-    run(:'read-type', key_string, false).split.last
+    run(:'read-type', domain, key, false).split.last
   end
 
   def host
@@ -74,10 +74,6 @@ Puppet::Type.type(:osx_default).provide :defaults do
     @type ||= @resource[:type].to_s
   end
 
-  def key_string
-    "#{domain} #{key}"
-  end
-
   def values_as_hash
     Hash[value.map { |x| x.values_at(0, 2).map(&:to_s) }]
   end
@@ -96,14 +92,14 @@ Puppet::Type.type(:osx_default).provide :defaults do
   end
 
   def dict_exists?
-    read_type == 'dictionary' && current_dict == values_as_hash
+    read_type.start_with?('dict') && current_dict == values_as_hash
   end
 
   def generic_value_string
-    "-#{type.lstrip} #{value}"
+    ["-#{type}", value]
   end
 
   def dict_value_string
-    '-dict ' + value.map { |k, t, v| "#{k} -#{t} '#{v}'" }.join(' ')
+    ['-dict',  value.map { |k, t, v| "#{k} -#{t} '#{v}'" }.join(' ')]
   end
 end
