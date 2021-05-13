@@ -28,7 +28,7 @@ Puppet::Type.type(:osx_default).provide :defaults do
 
   def run(failonfail, cmd, *args)
     execute(
-      ['defaults', host, cmd, *args],
+      ['defaults', *host, cmd, *args],
       failonfail: failonfail,
       uid: user,
       combine: true,
@@ -44,14 +44,14 @@ Puppet::Type.type(:osx_default).provide :defaults do
   end
 
   def host
-    return @host if @host
+    return [@host] if @host
     @host = case @resource[:host]
             when /^(current|currentHost)$/
-              '-currentHost'
+              ['-currentHost']
             when nil
-              ''
+              ['-currentHost']
             else
-              "-host #{@resource[:host]}"
+              ["-host", @resource[:host]]
             end
   end
 
