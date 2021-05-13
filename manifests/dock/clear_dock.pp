@@ -14,6 +14,7 @@ class osx::dock::clear_dock {
     user   => lookup("workstation_user"),
     domain => 'com.apple.dock',
     key    => 'persistent-apps',
+    type => 'array',
     value  => '()',
     notify => Exec['killall Dock'];
   }

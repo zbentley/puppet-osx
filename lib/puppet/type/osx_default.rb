@@ -7,8 +7,18 @@ Puppet::Type.newtype(:osx_default) do
   end
 
   validate do
-    ['user', 'domain', 'key', 'value', 'type'].each do |req|
+    ['user', 'domain', 'key', 'value'].each do |req|
       raise(ArgumentError, "Parameter #{req} is required") if self[req.to_sym].nil?
+    end
+    if self[:type] == :dict
+      self[:type] = :dictionary
+    end
+    if self[:type].nil?
+      if [true, false].include? self[:value]
+        self[:type] = :boolean
+      elsif self[:valie] == '()':
+        self[:type] == :array
+      end
     end
   end
 
@@ -39,6 +49,6 @@ Puppet::Type.newtype(:osx_default) do
 
   newparam(:type) do
     desc 'Type for key'
-    newvalues(:boolean, :bool, :integer, :dict, :int, :string)
+    newvalues(:boolean, :bool, :integer, :dict, :dictionary, :int, :string, :array)
   end
 end
