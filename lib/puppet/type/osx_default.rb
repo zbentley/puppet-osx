@@ -6,6 +6,12 @@ Puppet::Type.newtype(:osx_default) do
     defaultto :present
   end
 
+  validate do
+    ['user', 'domain', 'key', 'value', 'type'].each do |req|
+      raise(ArgumentError, "Parameter #{req} is required") if self[req.to_sym].nil?
+    end
+  end
+
   newparam(:name) do
     desc 'Description of option'
   end
@@ -34,10 +40,5 @@ Puppet::Type.newtype(:osx_default) do
   newparam(:type) do
     desc 'Type for key'
     newvalues(:boolean, :bool, :integer, :dict, :int, :string)
-    validate do |value|
-      unless value =~ /^\w+/
-        raise ArgumentError, "%s is not a valid user name" % value
-      end
-    end
   end
 end
