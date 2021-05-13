@@ -11,11 +11,11 @@ Puppet::Type.type(:osx_default).provide :defaults do
   end
 
   def destroy
-    run :delete, domain, key
+    run true, :delete, domain, key
   end
 
   def create
-    run :write, domain, key, *type_call(:value_string)
+    run true, :write, domain, key, *type_call(:value_string)
   end
 
   private
@@ -26,20 +26,21 @@ Puppet::Type.type(:osx_default).provide :defaults do
     send "generic_#{call}".to_sym
   end
 
-  def run(cmd, *args, failonfail=true)
+  def run(failonfail, cmd, *args)
     execute(
       ['defaults', host, cmd, *args],
       failonfail: failonfail,
-      uid: user
+      uid: user,
+      combine: true,
     )
   end
 
   def read
-    run(:read, domain, key, false).rstrip
+    run(false, :read, domain, key).rstrip
   end
 
   def read_type
-    run(:'read-type', domain, key, false).split.last
+    run(false, :'read-type', domain, key).split.last
   end
 
   def host
