@@ -34,5 +34,10 @@ Puppet::Type.newtype(:osx_default) do
   newparam(:type) do
     desc 'Type for key'
     newvalues(:boolean, :bool, :integer, :dict, :int, :string)
+    validate do |value|
+      unless value =~ /^\w+/
+        raise ArgumentError, "%s is not a valid user name" % value
+      end
+    end
   end
 end
