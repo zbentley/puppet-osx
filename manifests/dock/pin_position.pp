@@ -9,7 +9,7 @@ class osx::dock::pin_position($position = 'start') {
     key    => 'pinning',
     type   => 'string',
     value  => $position,
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     notify => Exec['killall Dock'];
   }
 }

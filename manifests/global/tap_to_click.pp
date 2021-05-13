@@ -6,7 +6,7 @@ class osx::global::tap_to_click {
     key    => 'Clicking',
     value  => true,
     type   => bool,
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 
   osx_default { 'Tap-To-Click Mouse':
@@ -15,7 +15,7 @@ class osx::global::tap_to_click {
     key    => 'com.apple.mouse.tapBehavior',
     value  => 1,
     type   => int,
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 
   osx_default { 'Tap-To-Click Current Host':
@@ -25,7 +25,7 @@ class osx::global::tap_to_click {
     value  => 1,
     type   => int,
     host   => 'currentHost',
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 
   osx_default { 'Tap-to-Click new trackpad':
@@ -33,6 +33,6 @@ class osx::global::tap_to_click {
     key    => 'Clicking',
     value  => 1,
     type   => int,
-    user   => $::boxen_user
+    user   => lookup("workstation_user")
   }
 }

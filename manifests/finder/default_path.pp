@@ -12,10 +12,10 @@
 #
 
 class osx::finder::default_path(
-  $path = "file:///Users/${::boxen_user}"
+  $path = "file:///Users/${lookup('workstation_user')}"
 ) {
   osx_default { 'Set Finder default path type':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.finder',
     key    => 'NewWindowTarget',
     value  => 'PfLo',
@@ -23,7 +23,7 @@ class osx::finder::default_path(
   }
 
   osx_default { 'Set Finder default path':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.finder',
     key    => 'NewWindowTargetPath',
     value  => $path,

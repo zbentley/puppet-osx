@@ -9,7 +9,7 @@ class osx::sound::interface_sound_effects (
   }
 
   osx_default { 'Manage interface sound effects':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     key    => 'com.apple.sound.uiaudio.enabled',
     domain => 'com.apple.systemsound',
     value  => $value,

@@ -3,7 +3,7 @@ class osx::finder::show_all_filename_extensions {
   include osx::finder
 
   osx_default { 'Show all filename extensions':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     key    => 'AppleShowAllExtensions',
     domain => 'com.apple.finder',
     value  => true,

@@ -3,7 +3,7 @@ class osx::mouse::trackpad_speed(
   $speed = 6
 ) {
   osx_default { 'Set trackpad speed':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'NSGlobalDomain',
     key    => 'com.apple.trackpad.scaling',
     value  => $speed,

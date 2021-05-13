@@ -3,7 +3,7 @@ class osx::finder::view_style(
   $style = 'Nlsv'
 ) {
   osx_default { 'Set view style in finder':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.Finder',
     key    => 'FXPreferredViewStyle',
     value  => $style,

@@ -19,7 +19,7 @@ class osx::dock::position($position = 'right') {
     key    => 'orientation',
     type   => 'string',
     value  => $position,
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     notify => Exec['killall Dock'];
   }
 }

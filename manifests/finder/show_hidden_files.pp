@@ -3,7 +3,7 @@ class osx::finder::show_hidden_files {
   include osx::finder
 
   osx_default { 'Show Hidden Files':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     key    => 'AppleShowAllFiles',
     domain => 'com.apple.finder',
     value  => true,

@@ -8,7 +8,7 @@ class osx::global::time_machine_prompts(
   }
 
   osx_default { 'Configure Time Machine prompts for new drives':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.TimeMachine',
     key    => 'DoNotOfferNewDisksForBackup',
     value  => $value,

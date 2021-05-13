@@ -7,6 +7,6 @@ class osx::global::enable_standard_function_keys($enabled = true)  {
     key    => 'com.apple.keyboard.fnState',
     type   => 'boolean',
     value  => $enabled,
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 }

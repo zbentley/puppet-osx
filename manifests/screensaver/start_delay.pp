@@ -4,7 +4,7 @@ class osx::screensaver::start_delay(
 ) {
   osx_default { 'Change screensaver start time':
     host   => 'currentHost',
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.screensaver',
     key    => 'idleTime',
     value  => $delay,

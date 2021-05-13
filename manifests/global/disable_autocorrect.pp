@@ -5,6 +5,6 @@ class osx::global::disable_autocorrect {
     domain => 'NSGlobalDomain',
     key    => 'NSAutomaticSpellingCorrectionEnabled',
     value  => false,
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 }

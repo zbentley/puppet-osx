@@ -3,7 +3,7 @@ class osx::finder::empty_trash_securely {
   include osx::finder
 
   osx_default { 'Securely Empty Trash':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     key    => 'EmptyTrashSecurely',
     domain => 'com.apple.finder',
     value  => true,

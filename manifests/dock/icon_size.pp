@@ -7,7 +7,7 @@ class osx::dock::icon_size($size = 36) {
     key    => 'tilesize',
     type   => 'int',
     value  => $size,
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     notify => Exec['killall Dock'];
   }
 }

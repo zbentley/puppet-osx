@@ -3,7 +3,7 @@ class osx::dock::disable {
   include osx::dock
 
   osx_default { 'Disable the dock':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     key    => 'autohide-delay',
     type   => 'float',
     domain => 'com.apple.dock',

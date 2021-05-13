@@ -9,7 +9,7 @@ class osx::mouse::silent_trackpad(
   }
 
   osx_default { 'Toggle silent clicking':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.AppleMultitouchTrackpad',
     key    => 'ActuationStrength',
     value  => $value,

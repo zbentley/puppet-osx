@@ -4,6 +4,6 @@ class osx::no_network_dsstores {
     key    => 'DSDontWriteNetworkStores',
     domain => 'com.apple.desktopservices',
     value  => true,
-    user   => $::boxen_user
+    user   => lookup("workstation_user")
   }
 }

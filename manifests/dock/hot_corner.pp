@@ -67,7 +67,7 @@ define osx::dock::hot_corner (
     key    => "wvous-${position_value}-corner",
     type   => int,
     value  => $action_value,
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     notify => Exec['killall Dock'];
   }
 
@@ -76,7 +76,7 @@ define osx::dock::hot_corner (
     key    => "wvous-${position_value}-modifier",
     type   => int,
     value  => 0,
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     notify => Exec['killall Dock'];
   }
 }

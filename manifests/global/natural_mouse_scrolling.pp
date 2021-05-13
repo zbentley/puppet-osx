@@ -7,6 +7,6 @@ class osx::global::natural_mouse_scrolling($enabled = true) {
     key    => 'com.apple.swipescrolldirection',
     type   => 'boolean',
     value  => $enabled,
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 }

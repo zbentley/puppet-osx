@@ -11,6 +11,6 @@ class osx::safari::enable_developer_mode {
     key    => 'IncludeDevelopMenu',
     type   => 'bool',
     value  => true,
-    user   => $::boxen_user
+    user   => lookup("workstation_user")
   }
 }

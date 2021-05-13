@@ -17,6 +17,6 @@ class osx::global::key_repeat_delay($delay = 35) {
     type   => 'int',
     key    => 'InitialKeyRepeat',
     value  => $delay,
-    user   => $::boxen_user
+    user   => lookup("workstation_user")
   }
 }

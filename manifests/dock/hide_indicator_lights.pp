@@ -3,7 +3,7 @@ class osx::dock::hide_indicator_lights {
   include osx::dock
 
   osx_default { 'Hide indicator lights under running applications':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.dock',
     key    => 'show-process-indicators',
     value  => false,

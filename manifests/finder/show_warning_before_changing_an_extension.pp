@@ -3,7 +3,7 @@ class osx::finder::show_warning_before_changing_an_extension {
   include osx::finder
 
   osx_default { 'Show warning before changing an extension':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     key    => 'FXEnableExtensionChangeWarning',
     domain => 'com.apple.finder',
     value  => true,

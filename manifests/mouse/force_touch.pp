@@ -9,7 +9,7 @@ class osx::mouse::force_touch(
   }
 
   osx_default { 'Toggle haptic feedback for Force Touch':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.AppleMultitouchTrackpad',
     key    => 'ActuateDetents',
     value  => $haptic_value,
@@ -22,7 +22,7 @@ class osx::mouse::force_touch(
   }
 
   osx_default { 'Toggle force supression for Force Touch':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.AppleMultitouchTrackpad',
     key    => 'ForceSuppressed',
     value  => $force_value,

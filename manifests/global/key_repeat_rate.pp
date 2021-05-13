@@ -17,6 +17,6 @@ class osx::global::key_repeat_rate($rate = 0) {
     type   => 'int',
     key    => 'KeyRepeat',
     value  => $rate,
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 }

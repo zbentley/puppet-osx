@@ -3,7 +3,7 @@ class osx::global::ui_mode (
   $mode = 'Dark'
 ) {
   osx_default { 'Set UI mode':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'NSGlobalDomain',
     key    => 'AppleInterfaceStyle',
     value  => $mode,

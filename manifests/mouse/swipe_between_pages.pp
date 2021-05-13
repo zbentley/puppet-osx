@@ -2,7 +2,7 @@
 # (default = disabled). Requires re-login.
 class osx::mouse::swipe_between_pages($enabled = false) {
   osx_default { 'Enable swipe between pages for multitouch mice':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'NSGlobalDomain',
     key    => 'AppleEnableMouseSwipeNavigateWithScrolls',
     value  => $enabled,

@@ -15,7 +15,7 @@ class osx::finder::sidebar_icon_size (
   $size = 1
 ) {
   osx_default { 'Set sidebar icon size':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'NSGlobalDomain',
     key    => 'NSTableViewDefaultSizeMode',
     value  => $size,

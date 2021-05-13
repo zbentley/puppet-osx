@@ -3,7 +3,7 @@ class osx::finder::enable_quicklook_text_selection {
   include osx::finder
 
   osx_default { 'Enable Quick Look text selection':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.finder',
     key    => 'QLEnableTextSelection',
     value  => true,

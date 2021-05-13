@@ -13,7 +13,7 @@
 #   }
 class osx::universal_access::cursor_size($zoom = 1.5) {
   osx_default { 'cursor size':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.universalaccess',
     key    => 'mouseDriverCursorSize',
     value  => $zoom;

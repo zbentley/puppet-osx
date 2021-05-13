@@ -5,6 +5,6 @@ class osx::global::disable_key_press_and_hold {
     domain => 'NSGlobalDomain',
     key    => 'ApplePressAndHoldEnabled',
     value  => false,
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 }

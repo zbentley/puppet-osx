@@ -5,7 +5,7 @@ class osx::global::disable_smart_quotes {
     domain => 'NSGlobalDomain',
     key    => 'NSAutomaticQuoteSubstitutionEnabled',
     value  => false,
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 
   osx_default { 'Disable smart dashes':
@@ -13,6 +13,6 @@ class osx::global::disable_smart_quotes {
     domain => 'NSGlobalDomain',
     key    => 'NSAutomaticDashSubstitutionEnabled',
     value  => false,
-    user   => $::boxen_user;
+    user   => lookup("workstation_user");
   }
 }

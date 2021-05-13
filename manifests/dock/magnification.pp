@@ -25,7 +25,7 @@ class osx::dock::magnification (
     key    => 'magnification',
     type   => 'bool',
     value  => $magnification,
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     notify => Exec['killall Dock'];
   }
 
@@ -34,7 +34,7 @@ class osx::dock::magnification (
     key    => 'largesize',
     type   => int,
     value  => $magnification_size,
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     notify => Exec['killall Dock'];
   }
 

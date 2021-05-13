@@ -3,7 +3,7 @@ class osx::software_update::frequency (
   $frequency = 1
 ) {
   osx_default { 'Check for updates daily':
-    user   => $::boxen_user,
+    user   => lookup("workstation_user"),
     domain => 'com.apple.SoftwareUpdate',
     key    => 'ScheduleFrequency',
     value  => $frequency,
