@@ -2,7 +2,7 @@
 class osx::screensaver::start_delay(
   $delay = 300
 ) {
-  boxen::osx_defaults { 'Change screensaver start time':
+  osx_default { 'Change screensaver start time':
     host   => 'currentHost',
     user   => $::boxen_user,
     domain => 'com.apple.screensaver',

@@ -2,7 +2,7 @@
 class osx::dock::icon_size($size = 36) {
   include osx::dock
 
-  boxen::osx_defaults { 'icon size':
+  osx_default { 'icon size':
     domain => 'com.apple.dock',
     key    => 'tilesize',
     type   => 'int',

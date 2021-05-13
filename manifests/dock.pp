@@ -2,7 +2,7 @@
 #
 # Example
 #
-#   boxen::osx_defaults { 'Do a thing':
+#   osx_default { 'Do a thing':
 #     # ... other stuff here ...
 #     notify => Exec['killall Dock'];
 #   }

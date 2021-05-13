@@ -20,7 +20,7 @@ class osx::dock::magnification (
 ){
   include osx::dock
 
-  boxen::osx_defaults { 'magnification':
+  osx_default { 'magnification':
     domain => 'com.apple.dock',
     key    => 'magnification',
     type   => 'bool',
@@ -29,7 +29,7 @@ class osx::dock::magnification (
     notify => Exec['killall Dock'];
   }
 
-  boxen::osx_defaults { 'magnification_size':
+  osx_default { 'magnification_size':
     domain => 'com.apple.dock',
     key    => 'largesize',
     type   => int,

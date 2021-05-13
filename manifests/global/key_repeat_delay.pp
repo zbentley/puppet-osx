@@ -12,7 +12,7 @@
 #     delay => 10
 #   }
 class osx::global::key_repeat_delay($delay = 35) {
-  boxen::osx_defaults { 'key repeat delay':
+  osx_default { 'key repeat delay':
     domain => 'NSGlobalDomain',
     type   => 'int',
     key    => 'InitialKeyRepeat',

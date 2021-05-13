@@ -2,7 +2,7 @@
 class osx::dock::clear_dock {
   include osx::dock
 
-  boxen::osx_defaults { 'Prevent launchpad from reappearing':
+  osx_default { 'Prevent launchpad from reappearing':
     user   => $::boxen_user,
     domain => 'com.apple.dock',
     key    => 'checked-for-launchpad',
@@ -10,7 +10,7 @@ class osx::dock::clear_dock {
     notify => Exec['killall Dock'];
   }
 
-  boxen::osx_defaults { 'Remove all the pinned icons':
+  osx_default { 'Remove all the pinned icons':
     user   => $::boxen_user,
     domain => 'com.apple.dock',
     key    => 'persistent-apps',

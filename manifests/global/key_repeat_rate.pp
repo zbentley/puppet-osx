@@ -12,7 +12,7 @@
 #     rate => 2
 #   }
 class osx::global::key_repeat_rate($rate = 0) {
-  boxen::osx_defaults { 'key repeat rate':
+  osx_default { 'key repeat rate':
     domain => 'NSGlobalDomain',
     type   => 'int',
     key    => 'KeyRepeat',

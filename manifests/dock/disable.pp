@@ -2,7 +2,7 @@
 class osx::dock::disable {
   include osx::dock
 
-  boxen::osx_defaults { 'Disable the dock':
+  osx_default { 'Disable the dock':
     user   => $::boxen_user,
     key    => 'autohide-delay',
     type   => 'float',

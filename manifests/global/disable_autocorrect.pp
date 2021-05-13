@@ -1,6 +1,6 @@
 # Public: Disables spelling autocorrect.
 class osx::global::disable_autocorrect {
-  boxen::osx_defaults { 'Disable autocorrect':
+  osx_default { 'Disable autocorrect':
     ensure => present,
     domain => 'NSGlobalDomain',
     key    => 'NSAutomaticSpellingCorrectionEnabled',

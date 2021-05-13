@@ -41,7 +41,7 @@ define osx::recovery_message(
 
   if $ensure == 'present' {
     if $value != undef {
-      boxen::osx_defaults { 'Set OS X Recovery Message':
+      osx_default { 'Set OS X Recovery Message':
         ensure => present,
         domain => '/Library/Preferences/com.apple.loginwindow.plist',
         key    => 'LoginwindowText',
@@ -62,7 +62,7 @@ define osx::recovery_message(
       fail('Cannot set an OS X recovery message without a value')
     }
   } else {
-    boxen::osx_defaults { 'Remove OS X Recovery Message':
+    osx_default { 'Remove OS X Recovery Message':
       ensure => absent,
       domain => '/Library/Preferences/com.apple.loginwindow.plist',
       key    => 'LoginwindowText',

@@ -2,7 +2,7 @@
 class osx::dock::twod {
   include osx::dock
 
-  boxen::osx_defaults { 'Use a flat, 2d style for the Dock':
+  osx_default { 'Use a flat, 2d style for the Dock':
     user   => $::boxen_user,
     key    => 'no-glass',
     domain => 'com.apple.dock',

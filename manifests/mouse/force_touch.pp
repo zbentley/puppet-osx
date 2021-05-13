@@ -8,7 +8,7 @@ class osx::mouse::force_touch(
     true  => 1
   }
 
-  boxen::osx_defaults { 'Toggle haptic feedback for Force Touch':
+  osx_default { 'Toggle haptic feedback for Force Touch':
     user   => $::boxen_user,
     domain => 'com.apple.AppleMultitouchTrackpad',
     key    => 'ActuateDetents',
@@ -21,7 +21,7 @@ class osx::mouse::force_touch(
     true  => 0
   }
 
-  boxen::osx_defaults { 'Toggle force supression for Force Touch':
+  osx_default { 'Toggle force supression for Force Touch':
     user   => $::boxen_user,
     domain => 'com.apple.AppleMultitouchTrackpad',
     key    => 'ForceSuppressed',

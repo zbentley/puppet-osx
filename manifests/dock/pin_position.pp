@@ -4,7 +4,7 @@
 class osx::dock::pin_position($position = 'start') {
   include osx::dock
 
-  boxen::osx_defaults { 'pin position':
+  osx_default { 'pin position':
     domain => 'com.apple.dock',
     key    => 'pinning',
     type   => 'string',

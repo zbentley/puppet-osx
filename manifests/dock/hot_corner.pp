@@ -62,7 +62,7 @@ define osx::dock::hot_corner (
     'Notification Center' => 12
   }
 
-  boxen::osx_defaults { "Hot Corners ${position} Action":
+  osx_default { "Hot Corners ${position} Action":
     domain => 'com.apple.dock',
     key    => "wvous-${position_value}-corner",
     type   => int,
@@ -71,7 +71,7 @@ define osx::dock::hot_corner (
     notify => Exec['killall Dock'];
   }
 
-  boxen::osx_defaults { "Hot Corners ${position} Modifier":
+  osx_default { "Hot Corners ${position} Modifier":
     domain => 'com.apple.dock',
     key    => "wvous-${position_value}-modifier",
     type   => int,

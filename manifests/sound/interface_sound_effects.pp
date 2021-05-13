@@ -8,7 +8,7 @@ class osx::sound::interface_sound_effects (
     default => 1
   }
 
-  boxen::osx_defaults { 'Manage interface sound effects':
+  osx_default { 'Manage interface sound effects':
     user   => $::boxen_user,
     key    => 'com.apple.sound.uiaudio.enabled',
     domain => 'com.apple.systemsound',

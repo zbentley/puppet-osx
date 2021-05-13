@@ -1,6 +1,6 @@
 # Public: Disables Smart quotes and dashes
 class osx::global::disable_smart_quotes {
-  boxen::osx_defaults { 'Disable smart quotes':
+  osx_default { 'Disable smart quotes':
     ensure => present,
     domain => 'NSGlobalDomain',
     key    => 'NSAutomaticQuoteSubstitutionEnabled',
@@ -8,7 +8,7 @@ class osx::global::disable_smart_quotes {
     user   => $::boxen_user;
   }
 
-  boxen::osx_defaults { 'Disable smart dashes':
+  osx_default { 'Disable smart dashes':
     ensure => present,
     domain => 'NSGlobalDomain',
     key    => 'NSAutomaticDashSubstitutionEnabled',

@@ -2,7 +2,7 @@
 class osx::dock::autohide {
   include osx::dock
 
-  boxen::osx_defaults { 'Automatically hide the dock':
+  osx_default { 'Automatically hide the dock':
     user   => $::boxen_user,
     key    => 'autohide',
     domain => 'com.apple.dock',

@@ -6,7 +6,7 @@ class osx::mouse::button_mode($mode = 1) {
     2 => 'TwoButton'
   }
 
-  boxen::osx_defaults { 'Set the button mode for multitouch mice':
+  osx_default { 'Set the button mode for multitouch mice':
     user   => $::boxen_user,
     domain => 'com.apple.driver.AppleBluetoothMultitouch.mouse',
     key    => 'MouseButtonMode',

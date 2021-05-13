@@ -1,6 +1,6 @@
 # Public: Enables Tap to click
 class osx::global::tap_to_click {
-  boxen::osx_defaults { 'Tap-To-Click Bluetooth':
+  osx_default { 'Tap-To-Click Bluetooth':
     ensure => present,
     domain => 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
     key    => 'Clicking',
@@ -9,7 +9,7 @@ class osx::global::tap_to_click {
     user   => $::boxen_user;
   }
 
-  boxen::osx_defaults { 'Tap-To-Click Mouse':
+  osx_default { 'Tap-To-Click Mouse':
     ensure => present,
     domain => 'NSGlobalDomain',
     key    => 'com.apple.mouse.tapBehavior',
@@ -18,7 +18,7 @@ class osx::global::tap_to_click {
     user   => $::boxen_user;
   }
 
-  boxen::osx_defaults { 'Tap-To-Click Current Host':
+  osx_default { 'Tap-To-Click Current Host':
     ensure => present,
     domain => 'NSGlobalDomain',
     key    => 'com.apple.mouse.tapBehavior',
@@ -28,7 +28,7 @@ class osx::global::tap_to_click {
     user   => $::boxen_user;
   }
 
-  boxen::osx_defaults { 'Tap-to-Click new trackpad':
+  osx_default { 'Tap-to-Click new trackpad':
     domain => 'com.apple.AppleMultitouchTrackpad',
     key    => 'Clicking',
     value  => 1,

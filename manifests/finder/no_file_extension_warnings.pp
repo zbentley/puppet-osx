@@ -2,7 +2,7 @@
 class osx::finder::no_file_extension_warnings {
   include osx::finder
 
-  boxen::osx_defaults { 'Disable file extension change warnings':
+  osx_default { 'Disable file extension change warnings':
     user   => $::boxen_user,
     domain => 'com.apple.finder',
     key    => 'FXEnableExtensionChangeWarning',

@@ -2,7 +2,7 @@
 class osx::dock::dim_hidden_apps {
   include osx::dock
 
-  boxen::osx_defaults { 'Dim hidden apps':
+  osx_default { 'Dim hidden apps':
     user   => $::boxen_user,
     domain => 'com.apple.dock',
     key    => 'showhidden',
