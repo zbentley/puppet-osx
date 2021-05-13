@@ -16,8 +16,8 @@ Puppet::Type.newtype(:osx_default) do
     if self[:type].nil?
       if [true, false].include? self[:value]
         self[:type] = :boolean
-      elsif self[:value] == '()'
-        self[:type] == :array
+      else
+        raise(ArgumentError, "Parameter type is required")
       end
     end
   end

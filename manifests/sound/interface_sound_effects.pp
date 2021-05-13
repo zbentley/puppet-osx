@@ -13,5 +13,6 @@ class osx::sound::interface_sound_effects (
     key    => 'com.apple.sound.uiaudio.enabled',
     domain => 'com.apple.systemsound',
     value  => $value,
+    type => 'int',
   }
 }
