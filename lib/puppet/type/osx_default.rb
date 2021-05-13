@@ -16,7 +16,7 @@ Puppet::Type.newtype(:osx_default) do
     if self[:type].nil?
       if [true, false].include? self[:value]
         self[:type] = :boolean
-      elsif self[:valie] == '()':
+      elsif self[:value] == '()'
         self[:type] == :array
       end
     end
