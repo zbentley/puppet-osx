@@ -34,13 +34,13 @@ Puppet::Type.newtype(:osx_default) do
   newparam(:type) do
     desc 'Type for key'
     newvalues(:boolean, :integer, :dict, :int, :string)
-    munge do |value|
-      case value
-      when :int
-        super :integer
-      else
-        super value
-      end
-    end
+    # munge do |value|
+    #   case value
+    #   when :int
+    #     super :integer
+    #   else
+    #     super value
+    #   end
+    # end
   end
 end

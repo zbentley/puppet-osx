@@ -72,9 +72,6 @@ Puppet::Type.type(:osx_default).provide :defaults do
 
   def type
     @type ||= @resource[:type].to_s
-    if @type == 'int'
-      @type = 'integer'
-    end
   end
 
   def key_string
@@ -103,7 +100,7 @@ Puppet::Type.type(:osx_default).provide :defaults do
   end
 
   def generic_value_string
-    "-#{type} #{value}"
+    "-#{type.lstrip} #{value}"
   end
 
   def dict_value_string
